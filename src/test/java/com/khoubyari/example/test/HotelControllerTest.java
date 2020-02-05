@@ -83,10 +83,10 @@ public class HotelControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is((int) id)))
-                .andExpect(jsonPath("$.name", is(r1.getName())))
-                .andExpect(jsonPath("$.city", is(r1.getCity())))
-                .andExpect(jsonPath("$.description", is(r1.getDescription())))
-                .andExpect(jsonPath("$.rating", is(r1.getRating())));
+                .andExpect(jsonPath("$.name", is(r1.getApplication())))
+                .andExpect(jsonPath("$.city", is(r1.getComponent())))
+                .andExpect(jsonPath("$.description", is(r1.getFeature())))
+                .andExpect(jsonPath("$.rating", is(r1.getIsOn())));
 
         //DELETE
         mvc.perform(delete("/example/v1/hotels/" + id))
@@ -137,10 +137,10 @@ JSONAssert.assertEquals(
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is((int) id)))
-                .andExpect(jsonPath("$.name", is(r2.getName())))
-                .andExpect(jsonPath("$.city", is(r2.getCity())))
-                .andExpect(jsonPath("$.description", is(r2.getDescription())))
-                .andExpect(jsonPath("$.rating", is(r2.getRating())));
+                .andExpect(jsonPath("$.name", is(r2.getApplication())))
+                .andExpect(jsonPath("$.city", is(r2.getComponent())))
+                .andExpect(jsonPath("$.description", is(r2.getFeature())))
+                .andExpect(jsonPath("$.rating", is(r2.getIsOn())));
 
         //DELETE
         mvc.perform(delete("/example/v1/hotels/" + id))
@@ -160,10 +160,7 @@ JSONAssert.assertEquals(
 
     private Hotel mockHotel(String prefix) {
         Hotel r = new Hotel();
-        r.setCity(prefix + "_city");
-        r.setDescription(prefix + "_description");
-        r.setName(prefix + "_name");
-        r.setRating(new Random().nextInt(6));
+
         return r;
     }
 

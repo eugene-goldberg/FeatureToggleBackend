@@ -17,28 +17,25 @@ public class Hotel {
     private long id;
 
     @Column(nullable = false)
-    private String name;
+    private String application;
 
     @Column()
-    private String description;
+    private String component;
 
     @Column()
-    String city;
+    String feature;
 
     @Column()
-    private int rating;
-
-    @Column()
-    private boolean isAvailable;
+    private boolean isOn;
 
     public Hotel() {
     }
 
-    public Hotel(String name, String description, int rating, boolean available) {
-        this.name = name;
-        this.description = description;
-        this.rating = rating;
-        this.isAvailable = available;
+    public Hotel(String application, String component, String feature, boolean isOn) {
+        this.application = application;
+        this.component = component;
+        this.feature = feature;
+        this.isOn = isOn;
     }
 
     public long getId() {
@@ -50,55 +47,42 @@ public class Hotel {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getApplication() {
+        return application;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setApplication(String application) {
+        this.application = application;
     }
 
-    public String getDescription() {
-        return description;
+    public String getComponent() {
+        return component;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setComponent(String component) {
+        this.component = component;
     }
 
-    public int getRating() {
-        return rating;
+    public String getFeature() {
+        return feature;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setFeature(String feature) {
+        this.feature = feature;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public boolean getIsAvailable() {
-        return isAvailable;
-    }
-
-    public void setIsAvailable(boolean available) {
-        this.isAvailable = available;
+    public boolean getIsOn() {
+        return isOn;
     }
 
     @Override
     public String toString() {
         return "Hotel {" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", city='" + city + '\'' +
-                ", rating=" + rating +
-                ", isAvailable=" + isAvailable +
+                ", application='" + application + '\'' +
+                ", component='" + component + '\'' +
+                ", feature='" + feature + '\'' +
+                ", isOn=" + isOn +
                 '}';
     }
 }
